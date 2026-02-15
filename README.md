@@ -1,78 +1,33 @@
-speedtest-cli
-=============
+# speedtest-cli
 
 Command line interface for testing internet bandwidth using
 speedtest.net
 
-.. image:: https://img.shields.io/pypi/v/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
-        :alt: Latest Version
-.. image:: https://img.shields.io/travis/sivel/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
-        :alt: Travis
-.. image:: https://img.shields.io/pypi/l/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
-        :alt: License
+This is a fork of the now archived [sivel/speedtest-cli](https://github.com/sivel/speedtest-cli) project. Python 2 support has been dropped and the codebase modernized to target Python 3.8+.
 
-Versions
---------
+## Installation
 
-speedtest-cli requires Python 3.6+
+### Github
 
-.. image:: https://img.shields.io/pypi/pyversions/speedtest-cli.svg
-        :target: https://pypi.python.org/pypi/speedtest-cli/
-        :alt: Versions
-
-Installation
-------------
-
-pip / easy\_install
-~~~~~~~~~~~~~~~~~~~
-
-::
-
-    pip install speedtest-cli
+    pip install git+https://github.com/error426/speedtest-cli.git
 
 or
 
-::
-
-    easy_install speedtest-cli
-
-Github
-~~~~~~
-
-::
-
-    pip install git+https://github.com/sivel/speedtest-cli.git
-
-or
-
-::
-
-    git clone https://github.com/sivel/speedtest-cli.git
+    git clone https://github.com/error426/speedtest-cli.git
     cd speedtest-cli
     python setup.py install
 
-Just download (Like the way it used to be)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Just download (Like the way it used to be)
 
-::
-
-    wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+    wget -O speedtest-cli https://raw.githubusercontent.com/error426/speedtest-cli/master/speedtest.py
     chmod +x speedtest-cli
 
 or
 
-::
-
-    curl -Lo speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+    curl -Lo speedtest-cli https://raw.githubusercontent.com/error426/speedtest-cli/master/speedtest.py
     chmod +x speedtest-cli
 
-Usage
------
-
-::
+## Usage
 
     $ speedtest-cli -h
     usage: speedtest-cli [-h] [--no-download] [--no-upload] [--single] [--bytes]
@@ -84,7 +39,7 @@ Usage
 
     Command line interface for testing internet bandwidth using speedtest.net.
     --------------------------------------------------------------------------
-    https://github.com/sivel/speedtest-cli
+    https://github.com/error426/speedtest-cli
 
     optional arguments:
       -h, --help            show this help message and exit
@@ -126,29 +81,28 @@ Usage
       --version             Show the version number and exit
 
 
-Python API
-----------
+## Inconsistency
 
-See the `wiki <https://github.com/sivel/speedtest-cli/wiki>`_.
+It is not a goal of this application to be a reliable latency reporting
+tool.
 
+Latency reported by this tool should not be relied on as a value
+indicative of ICMP style latency. It is a relative value used for
+determining the lowest latency server for performing the actual speed
+test against.
 
-Inconsistency
--------------
+There is the potential for this tool to report results inconsistent with
+Speedtest.net. There are several concepts to be aware of that factor
+into the potential inconsistency:
 
-It is not a goal of this application to be a reliable latency reporting tool.
-
-Latency reported by this tool should not be relied on as a value indicative of ICMP
-style latency. It is a relative value used for determining the lowest latency server
-for performing the actual speed test against.
-
-There is the potential for this tool to report results inconsistent with Speedtest.net.
-There are several concepts to be aware of that factor into the potential inconsistency:
-
-1. Speedtest.net has migrated to using pure socket tests instead of HTTP based tests
-2. This application is written in Python
-3. Different versions of Python will execute certain parts of the code faster than others
-4. CPU and Memory capacity and speed will play a large part in inconsistency between
-   Speedtest.net and even other machines on the same network
+1.  Speedtest.net has migrated to using pure socket tests instead of
+    HTTP based tests
+2.  This application is written in Python
+3.  Different versions of Python will execute certain parts of the code
+    faster than others
+4.  CPU and Memory capacity and speed will play a large part in
+    inconsistency between Speedtest.net and even other machines on the
+    same network
 
 Issues relating to inconsistencies will be closed as wontfix and without
 additional reason or context.
