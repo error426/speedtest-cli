@@ -57,10 +57,6 @@ except ImportError:
 
 try:
     import xml.etree.ElementTree as ET
-    try:
-        from xml.etree.ElementTree import _Element as ET_Element
-    except ImportError:
-        pass
 except ImportError:
     from xml.dom import minidom as DOM
     from xml.parsers.expat import ExpatError
@@ -687,7 +683,8 @@ class SpeedtestResults(object):
         self.client = client or {}
 
         self._share = None
-        self.timestamp = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        self.timestamp = (datetime.datetime.now(datetime.timezone.utc)
+                          .isoformat())
         self.bytes_received = 0
         self.bytes_sent = 0
 

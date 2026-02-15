@@ -62,7 +62,7 @@ setup(
     author_email='matt@sivel.net',
     url='https://github.com/sivel/speedtest-cli',
     license='Apache License, Version 2.0',
-    python_requires='>=3.6',
+    python_requires='>=3.8',
     py_modules=['speedtest'],
     entry_points={
         'console_scripts': [
@@ -77,8 +77,6 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
