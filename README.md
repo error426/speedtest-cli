@@ -7,11 +7,9 @@ This is a fork of the now archived [sivel/speedtest-cli](https://github.com/sive
 
 ## Installation
 
-<<<<<<< HEAD:README.rst
 speedtest-cli requires Python 3.6+
 =======
 ### Github
->>>>>>> dev:README.md
 
     pip install git+https://github.com/error426/speedtest-cli.git
 
